@@ -1,6 +1,56 @@
 {
   "version": 1,
   "projects": {
+    "feature-shared": {
+      "projectType": "library",
+      "root": "libs/feature/shared",
+      "sourceRoot": "libs/feature/shared/src",
+      "prefix": "mw",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature/shared"],
+          "options": {
+            "jestConfig": "libs/feature/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/shared/src/**/*.ts",
+              "libs/feature/shared/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "listing": {
+      "projectType": "library",
+      "root": "libs/listing",
+      "sourceRoot": "libs/listing/src",
+      "prefix": "mw",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/listing"],
+          "options": {
+            "jestConfig": "libs/listing/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/listing/src/**/*.ts",
+              "libs/listing/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "sandbox": {
       "projectType": "application",
       "root": "apps/sandbox",
@@ -21,7 +71,10 @@
               "apps/sandbox/src/favicon.ico",
               "apps/sandbox/src/assets"
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/sandbox/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/sandbox/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -117,6 +170,31 @@
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/sandbox-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "mw",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
           }
         }
       }

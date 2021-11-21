@@ -1,0 +1,22 @@
+<div class='result-list'>
+    <mat-card *ngFor="let item of itemList" class="list-item">
+        <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+            <mat-card-subtitle>{{item.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button mat-icon-button color="primary" (click)='onSelectItem(item, resultActions.analytics)'>
+                <mat-icon>analytics</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)='onSelectItem(item, resultActions.favourite)'>
+                <mat-icon>grade</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                <mat-icon>home</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+  
+{{ selectedItem | json }}
+{{ selectedAction ? resultActions[selectedAction] : '' }}

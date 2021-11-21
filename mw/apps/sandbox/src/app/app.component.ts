@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { NavigationMenuItem } from 'libs/ui/src/lib/navigation/navigation.component';
 
 @Component({
   selector: 'mw-root',
@@ -6,5 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'sandbox';
+  title = 'Sandbox';
+
+  navList: NavigationMenuItem[] = [
+    {
+      routerLink: '',
+      name: 'Home'
+    },
+    {
+      routerLink: 'listing',
+      name: 'Listing'
+    },
+    {
+      routerLink: 'login',
+      name: 'Login'
+    }
+  ];
+
+  constructor() {
+  }
+
 }
+
+  

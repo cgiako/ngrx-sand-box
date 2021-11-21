@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mw/feature/shared": ["libs/feature/shared/src/index.ts"],
+      "@mw/listing": ["libs/listing/src/index.ts"],
+      "@mw/shared": ["libs/shared/src/index.ts"],
       "@mw/ui": ["libs/ui/src/index.ts"]
     }
   },

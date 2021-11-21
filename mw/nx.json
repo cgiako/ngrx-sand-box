@@ -27,12 +27,21 @@
     ]
   },
   "projects": {
+    "feature-shared": {
+      "tags": []
+    },
+    "listing": {
+      "tags": []
+    },
     "sandbox": {
       "tags": []
     },
     "sandbox-e2e": {
       "tags": [],
       "implicitDependencies": ["sandbox"]
+    },
+    "shared": {
+      "tags": []
     },
     "ui": {
       "tags": []

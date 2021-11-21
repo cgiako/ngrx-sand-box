@@ -14,6 +14,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ListingComponent } from './listing/listing.component';
+import { ListComponent } from './listing/components/list/list.component';
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 @NgModule({
   imports: [
@@ -21,11 +24,13 @@ import { RouterModule } from '@angular/router';
     LayoutModule, 
     MatToolbarModule, 
     MatButtonModule, 
-    MatSidenavModule, 
+    MatSidenavModule, MatGridListModule,
     MatIconModule, MatListModule, MatInputModule, MatSelectModule, MatRadioModule, MatCardModule, ReactiveFormsModule, RouterModule],
   declarations: [
     NavigationComponent,
-    LoginComponent
+    LoginComponent,
+    ListingComponent,
+    ListComponent
   ],
   exports: [
     NavigationComponent,
