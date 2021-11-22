@@ -2,22 +2,36 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+      [opened]="authenticationService.isUserAuthenticated()">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a *ngFor="let item of navList; index as i; trackBy: trackByFn" mat-list-item routerLink='{{item.routerLink}}'>{{item.name}}</a>
+      <a *ngFor="let item of navList; index as i; trackBy: trackByFn" mat-list-item routerLink='{{item.routerLink}}'>
+        <mat-icon style="margin-right: 12px;">{{item.icon}}</mat-icon>
+        {{item.name}}
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
+      <div>
+        <button *ngIf="authenticationService.isUserAuthenticated()"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Sandbox</span>
+      </div>
+      <button *ngIf="authenticationService.isUserAuthenticated()"
         type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        color="primary"
+        aria-label="Sign out"
+        mat-raised-button
+        (click)="logout()">
+        Sign-out
+        <mat-icon aria-label="Sign out icon" style="font-size: 20px;">logout</mat-icon>
       </button>
-      <span>Sandbox</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

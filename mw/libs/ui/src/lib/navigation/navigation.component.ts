@@ -2,10 +2,12 @@ import { Component, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthenticationService } from '@mw/shared';
 
 export interface NavigationMenuItem {
   routerLink: string;
   name: string;
+  icon?: string;
 }
 
 const DEFAULT_NAVIGATION: NavigationMenuItem[] = [
@@ -30,9 +32,16 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    public authenticationService: AuthenticationService,
+    private breakpointObserver: BreakpointObserver
+    ) {}
 
   trackByFn(): void {
+  }
+
+  logout(): void {
+    this.authenticationService.logout();
   }
 
 }

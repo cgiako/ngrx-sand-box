@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '@mw/shared'
 
 @Component({
   selector: 'mw-login',
@@ -12,20 +14,17 @@ export class LoginComponent {
     password: [null, Validators.required], 
   });
   
-  constructor(
+  constructor( 
     private fb: FormBuilder,
-    // private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService
   ) {}
 
   onSubmit(): void {
     // login logic
     if(this.loginForm.valid) {
-      console.log(this.loginForm.value);
+      this.authenticationService.login(this.loginForm.value).subscribe(value => {
+        // console.log(value);
+      });
     }
   }
-}
-
-interface LoginRequest {
-  username: string; 
-  password: string;
 }

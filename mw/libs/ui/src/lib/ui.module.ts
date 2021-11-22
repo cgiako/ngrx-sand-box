@@ -13,10 +13,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; 
 import { RouterModule } from '@angular/router';
 import { ListingComponent } from './listing/listing.component';
 import { ListComponent } from './listing/components/list/list.component';
-import {MatGridListModule} from '@angular/material/grid-list'; 
+import { MatGridListModule } from '@angular/material/grid-list'; 
 
 @NgModule({
   imports: [
@@ -24,8 +25,18 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LayoutModule, 
     MatToolbarModule, 
     MatButtonModule, 
-    MatSidenavModule, MatGridListModule,
-    MatIconModule, MatListModule, MatInputModule, MatSelectModule, MatRadioModule, MatCardModule, ReactiveFormsModule, RouterModule],
+    MatSidenavModule, 
+    MatGridListModule,
+    MatIconModule, 
+    MatListModule, 
+    MatInputModule, 
+    MatSelectModule, 
+    MatRadioModule, 
+    MatCardModule, 
+    ReactiveFormsModule, 
+    RouterModule,
+    MatSnackBarModule
+  ],
   declarations: [
     NavigationComponent,
     LoginComponent,

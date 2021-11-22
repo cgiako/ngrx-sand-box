@@ -13,16 +13,19 @@ export class AppComponent {
   navList: NavigationMenuItem[] = [
     {
       routerLink: '',
-      name: 'Home'
+      name: 'Dashboard',
+      icon: 'space_dashboard'
     },
     {
       routerLink: 'listing',
-      name: 'Listing'
+      name: 'Listing',
+      icon: 'format_list_bulleted'
     },
-    {
-      routerLink: 'login',
-      name: 'Login'
-    }
+    // {
+    //   routerLink: 'login',
+    //   name: 'Login',
+    //   icon: 'login'
+    // }
   ];
 
   constructor() {
