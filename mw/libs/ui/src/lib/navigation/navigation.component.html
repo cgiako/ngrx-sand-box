@@ -1,36 +1,45 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="authenticationService.isUserAuthenticated()">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    disableClose="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [ngStyle]="{ 'width.em': width }"
+    [mode]="'side'"
+    [opened]="authenticationService.isUserAuthenticated()"
+    (mouseenter)="toggle()"
+    (mouseleave)="toggle()"
+  >
     <mat-nav-list>
-      <a *ngFor="let item of navList; index as i; trackBy: trackByFn" mat-list-item routerLink='{{item.routerLink}}'>
-        <mat-icon style="margin-right: 12px;">{{item.icon}}</mat-icon>
-        {{item.name}}
+      <a
+        *ngFor="let item of navList; index as i; trackBy: trackByFn"
+        mat-list-item
+        [routerLink]="item.routerLink"
+        [routerLinkActive]="['is-active']"
+      >
+        <mat-icon style="margin-right: 12px;">{{ item.icon }}</mat-icon>
+        <span *ngIf="isExpanded">{{ item.name }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div>
-        <button *ngIf="authenticationService.isUserAuthenticated()"
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
         <span>Sandbox</span>
       </div>
-      <button *ngIf="authenticationService.isUserAuthenticated()"
+      <button
+        *ngIf="authenticationService.isUserAuthenticated()"
         type="button"
         color="primary"
         aria-label="Sign out"
         mat-raised-button
-        (click)="logout()">
+        (click)="logout()"
+      >
         Sign-out
-        <mat-icon aria-label="Sign out icon" style="font-size: 20px;">logout</mat-icon>
+        <mat-icon aria-label="Sign out icon" style="font-size: 20px;"
+          >logout</mat-icon
+        >
       </button>
     </mat-toolbar>
     <router-outlet></router-outlet>

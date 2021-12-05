@@ -17,7 +17,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 import { ListingComponent } from './listing/listing.component';
 import { ListComponent } from './listing/components/list/list.component';
-import { MatGridListModule } from '@angular/material/grid-list'; 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatMenuModule } from '@angular/material/menu'; 
 
 @NgModule({
   imports: [
@@ -35,17 +37,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule, 
     ReactiveFormsModule, 
     RouterModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   declarations: [
     NavigationComponent,
     LoginComponent,
     ListingComponent,
-    ListComponent
+    ListComponent,
+    DashboardComponent
   ],
   exports: [
     NavigationComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ]
 })
 export class UiModule {}

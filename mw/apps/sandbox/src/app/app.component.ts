@@ -12,24 +12,21 @@ export class AppComponent {
 
   navList: NavigationMenuItem[] = [
     {
-      routerLink: '',
+      routerLink: 'dashboard',
       name: 'Dashboard',
       icon: 'space_dashboard'
     },
-    {
-      routerLink: 'listing',
-      name: 'Listing',
-      icon: 'format_list_bulleted'
-    },
     // {
-    //   routerLink: 'login',
-    //   name: 'Login',
-    //   icon: 'login'
-    // }
+    //   routerLink: 'listing',
+    //   name: 'Listing',
+    //   icon: 'format_list_bulleted'
+    // },
+    {
+      routerLink: 'expenses',
+      name: 'Expenses',
+      icon: 'shopping_cart'
+    }
   ];
-
-  constructor() {
-  }
 
 }
 

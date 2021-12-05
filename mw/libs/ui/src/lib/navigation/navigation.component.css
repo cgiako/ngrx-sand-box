@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  transition-duration: 0.5s;
 }
 
 .sidenav .mat-toolbar {
@@ -16,4 +16,8 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
+}
+
+.is-active {
+  background-color: #eee;
 }

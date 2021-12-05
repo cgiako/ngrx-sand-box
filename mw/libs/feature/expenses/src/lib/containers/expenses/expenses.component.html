@@ -1,0 +1,7 @@
+<mat-list>
+  <mat-list-item *ngFor="let expense of expenses; index as i; trackBy: trackByFn">
+    <mat-icon mat-list-icon>payment</mat-icon>
+    <div mat-line>{{ expense.description }}</div>
+    <div mat-line>{{ expense.date | date: 'MM/dd/yy'}}</div>
+  </mat-list-item>
+</mat-list>

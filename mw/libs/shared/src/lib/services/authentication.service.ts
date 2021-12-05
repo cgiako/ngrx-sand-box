@@ -35,8 +35,8 @@ export class AuthenticationService {
   constructor(
     private router: Router,
     private snackBar: MatSnackBar,
-  ) {
-    this.currentUserSubject = new BehaviorSubject(null);
+  ) {    
+    this.currentUserSubject = new BehaviorSubject(localStorage.getItem('user'));
   }
 
   public login(loginRequest: LoginRequest): Observable<User> {
@@ -44,18 +44,19 @@ export class AuthenticationService {
     if (user) {
       this.snackBar.open(`Welcome ${user.username}.`, 'dismiss', {duration: 5000});
       this.currentUserSubject.next(user);
-      this.router.navigate(['listing']); // dashboard?
+      localStorage.setItem('user', JSON.stringify({username: user.username, role: user.role}));
+      this.router.navigate(['dashboard']);
     }
     return of(user ?? {} as User);
   }
 
   public logout(): void {
     this.currentUserSubject.next(null);
+    localStorage.removeItem('user');
     this.router.navigate(['login']);
   }
 
   public isUserAuthenticated(): boolean {
-    console.log(this.currentUserSubject.value);
     return this.currentUserSubject.value != null;
   }
   

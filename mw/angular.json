@@ -1,6 +1,31 @@
 {
   "version": 1,
   "projects": {
+    "feature-expenses": {
+      "projectType": "library",
+      "root": "libs/feature/expenses",
+      "sourceRoot": "libs/feature/expenses/src",
+      "prefix": "mw",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature/expenses"],
+          "options": {
+            "jestConfig": "libs/feature/expenses/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/expenses/src/**/*.ts",
+              "libs/feature/expenses/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "feature-shared": {
       "projectType": "library",
       "root": "libs/feature/shared",

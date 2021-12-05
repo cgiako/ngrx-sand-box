@@ -24,6 +24,10 @@ const DEFAULT_NAVIGATION: NavigationMenuItem[] = [
 })
 export class NavigationComponent {
 
+  public isExpanded = false;
+
+  public width = 4;
+
   @Input() navList: NavigationMenuItem[] = DEFAULT_NAVIGATION;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -37,7 +41,11 @@ export class NavigationComponent {
     private breakpointObserver: BreakpointObserver
     ) {}
 
-  trackByFn(): void {
+  trackByFn(): void {}
+
+  toggle(): void {
+    this.width = (this.width == 4 ? 15 : 4);
+    this.isExpanded = !this.isExpanded;
   }
 
   logout(): void {
